@@ -1,26 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package test;
 
-/**
- *
- * @author Usuario
- */
-//Importaciones para conexion base de datos
+
 import beans.Pelicula;
 import connection.DBConnection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class OperacionesBD {
-    
+    //metodo principal de ejecucion 
     public static void main(String[] args){
+        listarPelicula();
     
     }
     
-    //funciones 
+    //========================UPDATE==============================================
     public static void actualizarPelicula(int id, String genero){
     
         DBConnection con = new DBConnection();
@@ -38,5 +31,37 @@ public class OperacionesBD {
             con.desconectar();
         }//despues de conectarse poder desconectarse
     }
+    //======================VIEW===============================================
+      public static void listarPelicula(){
+    
+        DBConnection con = new DBConnection();
+        String sql = "SELECT * FROM pelicula"; //sentencia SQL
+        // control errores
+        try {
+            //validano la sentencia 
+            Statement st = con.getConnection().createStatement();//Conexion
+            ResultSet rs = st.executeQuery(sql);
+            //-----
+           while (rs.next()) {
+                int id = rs.getInt("id");
+                String titulo = rs.getString("titulo");
+                String genero = rs.getString("genero");
+                String autor = rs.getString("autor");
+                int copias = rs.getInt("copias");
+                boolean novedad = rs.getBoolean("novedad");
+                
+                Pelicula peliculas = new Pelicula(id, titulo, genero, autor, copias, novedad);
+                System.out.println(peliculas.toString());
+                    
+            }
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getLocalizedMessage());
+        }
+        finally{
+            con.desconectar();
+        }//despues de conectarse poder desconectarse
+    }
+    
     
 }
