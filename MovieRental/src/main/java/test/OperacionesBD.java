@@ -9,7 +9,8 @@ import java.sql.Statement;
 public class OperacionesBD {
     //metodo principal de ejecucion 
     public static void main(String[] args){
-        listarPelicula();
+        actualizarPelicula(1, "MAgico/Cambio");//testeo de actualizacion
+        listarPelicula(); //testeo de listado
     
     }
     
@@ -17,7 +18,7 @@ public class OperacionesBD {
     public static void actualizarPelicula(int id, String genero){
     
         DBConnection con = new DBConnection();
-        String sql = "UPDATE pelicula SET genero = ' " +genero+"'WHEREid"+id;
+        String sql="UPDATE pelicula SET genero ='"+genero+"'WHERE id="+id;
         // control errores
         try {
             //validano la sentencia 
