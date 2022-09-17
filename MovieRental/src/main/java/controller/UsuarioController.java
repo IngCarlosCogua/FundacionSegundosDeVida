@@ -41,6 +41,36 @@ public class UsuarioController implements IUsuarioController {
 
         return "false";
     }
+    // --------------controlador de registro 
+        @Override
+    public String register(String username, String contrasena, String nombre, String apellido, String email,
+            double saldo, boolean premiun) {
+
+        Gson gson = new Gson();
+
+        DBConnection con = new DBConnection();
+        String sql = "Insert into usuario values('" + username + "', '" + contrasena + "', '" + nombre
+                + "', '" + apellido + "', '" + email + "', " + saldo + ", " + premiun + ")";
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            Usuario usuario = new Usuario(username, contrasena, nombre, apellido, email, saldo, premiun);
+
+            st.close();
+
+            return gson.toJson(usuario);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
+    }
 
    
 }
