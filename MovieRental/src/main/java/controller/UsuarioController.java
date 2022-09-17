@@ -1,8 +1,3 @@
-/*
-  pagina para la dependencia
-https://mvnrepository.com/artifact/com.google.code.gson/gson/2.9.1
-CONTROLADOR
- */
 package controller;
 
 import java.sql.ResultSet;
@@ -21,7 +16,7 @@ public class UsuarioController implements IUsuarioController {
 
         DBConnection con = new DBConnection();
 
-        String sql = "Select * from usuarios where username = '" + username
+        String sql = "Select * from usuario where username = '" + username
                 + "' and contrasena = '" + contrasena + "'";
         try {
             Statement st = con.getConnection().createStatement();
@@ -29,13 +24,13 @@ public class UsuarioController implements IUsuarioController {
 
             while (rs.next()) {
                 String nombre = rs.getString("nombre");
-                String apellidos = rs.getString("apellidos");
+                String apellido = rs.getString("apellido");
                 String email = rs.getString("email");
                 double saldo = rs.getDouble("saldo");
-                boolean premium = rs.getBoolean("premium");
+                boolean premiun = rs.getBoolean("premiun");
 
                 Usuario usuario
-                        = new Usuario(username, contrasena, nombre, apellidos, email, saldo, premium);
+                        = new Usuario(username, contrasena, nombre, apellido, email, saldo, premiun);
                 return gson.toJson(usuario);
             }
         } catch (Exception ex) {

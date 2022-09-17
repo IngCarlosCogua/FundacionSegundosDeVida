@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class OperacionesBD {
     //metodo principal de ejecucion 
     public static void main(String[] args){
-        actualizarPelicula(1, "MAgico/Cambio");//testeo de actualizacion
+        //actualizarPelicula(1, "MAgico/Cambio");//testeo de actualizacion
         listarPelicula(); //testeo de listado
     
     }
