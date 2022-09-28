@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mycompany</groupId>
+    <groupId>cts</groupId>
     <artifactId>MovieRental</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
 
     <name>MovieRental</name>
@@ -21,14 +21,13 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- dependencia de mariadb para sql -->
-                <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.46</version>
         </dependency>
-                <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson  Nueva dependencia para conexion con front usuarios Nota siempre se debe celan y building en el proyecto despues de poner la dependencia-->
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

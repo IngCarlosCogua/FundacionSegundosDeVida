@@ -36,12 +36,12 @@ package servlets;
 			String username = request.getParameter("username");
 			String contrasena = request.getParameter("contrasena");
 			String nombre = request.getParameter("nombre");
-			String apellido = request.getParameter("apellido");
+			String apellidos = request.getParameter("apellidos");
 			String email = request.getParameter("email");
 			double saldo = Double.parseDouble(request.getParameter("saldo"));
-			boolean premiun = Boolean.parseBoolean(request.getParameter("premiun"));
+			boolean premium = Boolean.parseBoolean(request.getParameter("premium"));
 			
-			String result = usuario.register(username, contrasena, nombre, apellido, email, saldo, premiun);
+			String result = usuario.register(username, contrasena, nombre, apellidos, email, saldo, premium);
 			
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();

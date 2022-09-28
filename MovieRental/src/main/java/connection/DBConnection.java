@@ -1,43 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package connection;
 
-/**
- *
- * @author Usuario
- */
-import java.sql.Connection; //importando la dependica para la coneccion
-import java.sql.DriverManager; //controlador de bd
-public class DBConnection {
-    //proseso de conexion entre el bac y la BD
-    Connection connection; //creando objeto conexion
-    static String bd = "movies_rental"; //colocamos el nombre de la bd
-    static String port = "3306"; //puerto de la bd, toca revisar en el gertor de bd
-    static String login = "root";
-    static String password = "admin"; //contraseña de la base de datos    
+import java.sql.Connection;
+import java.sql.DriverManager;
 
-    //se genera uns constructor bacio 
+public class DBConnection {
+    Connection connection;
+    static String bd = "movies_rental";
+    static String port = "3306";
+    static String login = "root";
+    static String password = "admin";
+
     public DBConnection() {
-        //tratamiento de errores
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //llamado ala base de datos      
-            String url = "jdbc:mysql://localhost:"+ this.port+ "/"+this.bd; // url de la base de dtaos 
-            connection = DriverManager.getConnection(url,this.login, this.password); // controlado de la conexion
-            System.out.println("Conexion establecida");
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:"+ this.port + "/" + this.bd;
+            connection = DriverManager.getConnection(url, this.login, this.password);
+            System.out.println("Conexión Establecida");
         } catch (Exception ex) {
-            System.out.println("Error de la conexion");
+            System.out.println("Error en la conexión");
         }
-        
     }
-    //--------------------------
+    
     public Connection getConnection(){
-    return connection; // si encuentra el usuario y password retorne base de datos
+        return connection;
     }
+    
     public void desconectar(){
         connection = null;
-    }
-    
-    
+    }    
 }

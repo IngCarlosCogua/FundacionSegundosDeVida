@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Usuario
+ * @author Asus
  */
 @WebServlet(name = "PruebaServlet", urlPatterns = {"/PruebaServlet"})
 public class PruebaServlet extends HttpServlet {
@@ -31,20 +31,18 @@ public class PruebaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            //parametros para testear
+        try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
             String name = request.getParameter("name");
-
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet PruebaServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> PRUEBAS </h1>");
-            response.getWriter().append("El id que fue recibido es: "+id+" y el nombre de la pelicula es: "+ name); // mensaje de prueba de testeo
+            out.println("<h1>PRUEBA</h1>");
+            response.getWriter().append("El id que fue recibido es: " + id + " y el nombre de la pelicula es: " + name);
             out.println("</body>");
             out.println("</html>");
         }

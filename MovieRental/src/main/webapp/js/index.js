@@ -46,10 +46,10 @@ function registrarUsuario() {
     let contrasena = $("#input-contrasena").val();
     let contrasenaConfirmacion = $("#input-contrasena-repeat").val();
     let nombre = $("#input-nombre").val();
-    let apellido = $("#input-apellido").val();
+    let apellidos = $("#input-apellidos").val();
     let email = $("#input-email").val();
     let saldo = $("#input-saldo").val();
-    let premiun = $("#input-premiun").prop("checked");
+    let premium = $("#input-premium").prop("checked");
 
     if (contrasena == contrasenaConfirmacion) {
 
@@ -61,10 +61,10 @@ function registrarUsuario() {
                 username: username,
                 contrasena: contrasena,
                 nombre: nombre,
-                apellido: apellido,
+                apellidos: apellidos,
                 email: email,
                 saldo: saldo,
-                premiun: premiun
+                premium: premium
             }),
             success: function (result) {
                 let parsedResult = JSON.parse(result);
@@ -78,7 +78,7 @@ function registrarUsuario() {
                     $("#register-error").html("Error en el registro del usuario");
                 }
             }
-        })
+        });
     } else {
         $("#register-error").removeClass("d-none");
         $("#register-error").html("Las contraseñas no coinciden");

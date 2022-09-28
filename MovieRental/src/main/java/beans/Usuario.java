@@ -1,35 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package beans;
 
-/**
- *
- * @author Usuario
- */
 public class Usuario {
-    //Atributos de la tabla en la BD USUARIO
     private String username;
     private String contrasena;
     private String nombre;
-    private String apellido;
+    private String apellidos;
     private String email;
-    private double saldo;
-    private boolean premiun;
-    
-//constructor
-    public Usuario(String username, String contrasena, String nombre, String apellido, String email, double saldo, boolean premiun) {
+    private Double saldo;
+    private boolean premium;
+
+    public Usuario(String username, String contrasena, String nombre, String apellidos, String email, Double saldo, boolean premium) {
         this.username = username;
         this.contrasena = contrasena;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellidos = apellidos;
         this.email = email;
         this.saldo = saldo;
-        this.premiun = premiun;
+        this.premium = premium;
     }
-    
-// getters and setters
+
     public String getUsername() {
         return username;
     }
@@ -54,12 +44,12 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getEmail() {
@@ -70,30 +60,26 @@ public class Usuario {
         this.email = email;
     }
 
-    public double getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 
-    public boolean isPremiun() {
-        return premiun;
+    public boolean isPremium() {
+        return premium;
     }
 
-    public void setPremiun(boolean premiun) {
-        this.premiun = premiun;
+    public void setPremium(boolean premium) {
+        this.premium = premium;
     }
-    
-    // ----tostring-------
 
     @Override
     public String toString() {
-        return "Usuario{" + "username=" + username + ", contrasena=" + contrasena + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", saldo=" + saldo + ", premiun=" + premiun + '}';
+        return "Usuario{" + "username=" + username + ", contrasena=" + contrasena + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", saldo=" + saldo + ", premium=" + premium + '}';
     }
     
-  
-
     
 }
